@@ -107,4 +107,3 @@ Isso iniciará o servidor em [http://localhost:3000](http://localhost:3000), ond
 A API utilizada por esse sistema está documentada no **Swagger**. Você pode consultar a documentação completa para mais detalhes sobre os endpoints e como utilizá-los.
 
 - [Documentação da API - Swagger](https://github.com/pnascimentodev/connectback)
-```
