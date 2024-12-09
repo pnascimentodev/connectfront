@@ -1,6 +1,6 @@
 # Sistema de Vendas - Front-End
 
-Este é o **front-end** de um sistema de vendas, desenvolvido com **Next.js** e integrado a uma API para gerenciamento de produtos e vendas. O objetivo é facilitar a visualização e gestão de produtos, realizar vendas e controlar o estoque de forma eficiente.
+Este é o **front-end** de um sistema de vendas, desenvolvido com **Next.js** e integrado a uma API para gerenciamento de produtos e vendas. Realizado para o teste prático de frontend.
 
 ## Tecnologias Utilizadas
 
@@ -87,8 +87,8 @@ npm test
 Para começar, clone o repositório e instale as dependências:
 
 ```bash
-git clone https://github.com/seu-usuario/sistema-de-vendas.git
-cd sistema-de-vendas
+git clone https://github.com/pnascimentodev/connectfront.git
+cd connectfront
 npm install
 ```
 
@@ -106,5 +106,5 @@ Isso iniciará o servidor em [http://localhost:3000](http://localhost:3000), ond
 
 A API utilizada por esse sistema está documentada no **Swagger**. Você pode consultar a documentação completa para mais detalhes sobre os endpoints e como utilizá-los.
 
-- [Documentação da API - Swagger](http://localhost:3001/docs)
+- [Documentação da API - Swagger](https://github.com/pnascimentodev/connectback)
 ```
