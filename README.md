@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sistema de Vendas - Front-End
 
-## Getting Started
+Este é o **front-end** de um sistema de vendas, desenvolvido com **Next.js** e integrado a uma API para gerenciamento de produtos e vendas. O objetivo é facilitar a visualização e gestão de produtos, realizar vendas e controlar o estoque de forma eficiente.
 
-First, run the development server:
+## Tecnologias Utilizadas
+
+- **Next.js**: Framework React para renderização server-side (SSR) e otimização da experiência do usuário.
+- **TypeScript**: Garantia de tipos estáticos, proporcionando maior segurança e produtividade durante o desenvolvimento.
+- **Axios**: Biblioteca para requisições HTTP, utilizada na comunicação com a API para gerenciar produtos e vendas.
+- **React**: Biblioteca principal para a construção da interface de usuário.
+- **React Testing Library & Jest**: Ferramentas para testes unitários dos componentes.
+- **Styled Components**: Para estilização de componentes utilizando JavaScript.
+
+## Funcionalidades
+
+- **Listagem de Produtos**: Visualização de todos os produtos disponíveis no sistema.
+- **Cadastro de Produtos**: Criação, edição e exclusão de produtos.
+- **Cadastro de Vendas**: Realização de vendas, com associação de produtos e controle do estoque.
+- **Histórico de Vendas**: Exibição das vendas realizadas, com detalhes sobre os produtos, quantidades e valores totais.
+
+## Hooks Utilizados
+
+Os principais hooks utilizados no sistema são:
+
+- **useState**: Para gerenciamento de estado local, como armazenar dados de produtos e vendas.
+- **useEffect**: Para buscar dados da API ao carregar a página ou após mudanças no estado.
+
+## Integração com a API
+
+A integração com a API é realizada através do arquivo `services/api.ts`. O sistema se comunica com a API para:
+
+- Obter informações sobre os produtos.
+- Criar, editar ou excluir produtos.
+- Registrar novas vendas.
+
+### Endpoints da API
+
+- **GET /products**: Listagem de produtos. Também suporta a criação e edição de produtos.
+- **POST /sales**: Registro de novas vendas.
+
+#### Exemplo de Código para Obter Produtos:
+
+```typescript
+// Função para obter todos os produtos
+export const getProducts = async (name?: string): Promise<Product[]> => {
+  try {
+    const response = await api.get('/products', { params: { name } });
+    return response.data;
+  } catch (error) {
+    console.error('Erro ao buscar produtos:', error);
+    throw error;
+  }
+};
+```
+
+## Decisões de Arquitetura
+
+- **Uso do Next.js**: Escolhemos o Next.js por sua capacidade de renderização do lado servidor (SSR), o que melhora a performance e a indexação nos motores de busca. Além disso, ele oferece recursos como roteamento e otimização de imagens, facilitando o desenvolvimento.
+  
+- **Uso de TypeScript**: A adoção de TypeScript garante a segurança do código com tipos fortes, o que ajuda a evitar erros em tempo de execução e aumenta a produtividade dos desenvolvedores.
+  
+- **Comunicação com a API**: Utilizamos o Axios para realizar as requisições HTTP devido à sua simplicidade e flexibilidade, além de permitir um controle fácil sobre os erros e a manipulação de dados.
+  
+- **Componentes Reutilizáveis**: A divisão da interface em componentes reutilizáveis (como `ProductCard`, `SalesTable`) garante um código mais organizado e de fácil manutenção.
+
+## Testes
+
+Os testes são realizados utilizando **Jest** e **React Testing Library** para garantir que os componentes principais (como `ProductCard` e `SalesTable`) estão funcionando corretamente.
+
+### Exemplos de Testes:
+
+- **ProductCard.test.tsx**: Testa a renderização correta dos dados de um produto.
+- **SalesTable.test.tsx**: Testa a exibição das vendas, verificando se os produtos estão sendo corretamente identificados e exibidos.
+
+### Rodando os Testes
+
+Para rodar os testes, execute o comando:
+
+```bash
+npm test
+```
+
+## Instruções de Execução
+
+### Instalando Dependências
+
+Para começar, clone o repositório e instale as dependências:
+
+```bash
+git clone https://github.com/seu-usuario/sistema-de-vendas.git
+cd sistema-de-vendas
+npm install
+```
+
+### Executando o Servidor de Desenvolvimento
+
+Com as dependências instaladas, execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Isso iniciará o servidor em [http://localhost:3000](http://localhost:3000), onde você pode ver a aplicação em ação.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Documentação da API
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+A API utilizada por esse sistema está documentada no **Swagger**. Você pode consultar a documentação completa para mais detalhes sobre os endpoints e como utilizá-los.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Documentação da API - Swagger](http://localhost:3001/docs)
+```

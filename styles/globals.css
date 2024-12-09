@@ -1,0 +1,69 @@
+/* Reset e Normalização */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos globais personalizados */
+html, body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f7f7; /* Cor de fundo para a página */
+  color: #333333; /* Cor de texto padrão */
+}
+
+/* Loader personalizado */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader {
+  border-top-color: transparent;
+  border-radius: 50%;
+  border-width: 4px;
+  border-style: solid;
+  width: 3rem;
+  height: 3rem;
+  animation: spin 1s linear infinite;
+}
+
+/* Personalização da página de produtos */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  transition: transform 0.3s ease;
+}
+
+li:hover {
+  transform: scale(1.02); /* Efeito de zoom suave ao passar o mouse */
+}
+
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.4);
+}
+
+/* Estilização do container de produtos */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
